@@ -1,0 +1,19 @@
+{
+  "name": "artillery-test",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "postinstall": "rm -r node_modules/artillery/node_modules/socket.io-client",
+    "start-server": "node index.js",
+    "start-server-debug": "DEBUG=artillery-test node index.js",
+    "start-client-A": "GROUP=A node client.js",
+    "start-client-B": "GROUP=B node client.js",
+    "start-load-test": "artillery run test.yml"
+  },
+  "dependencies": {
+    "artillery": "^1.6.1",
+    "debug": "^4.3.1",
+    "socket.io": "^3.1.0",
+    "socket.io-client": "^3.1.0"
+  }
+}

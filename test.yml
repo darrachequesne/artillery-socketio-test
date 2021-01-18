@@ -1,0 +1,22 @@
+config:
+  target: "http://localhost:3000"
+  phases:
+    - arrivalRate: 50
+      duration: 60
+  variables:
+    group:
+      - "A"
+      - "B"
+scenarios:
+  - name: test
+    engine: socketio
+    flow:
+      - emit:
+          channel: "join-group"
+          data: "{{ group }}"
+      - emit:
+          channel: "broadcast"
+      - think: 10
+      - emit:
+          channel: "broadcast"
+      - think: 10
